@@ -22,10 +22,10 @@ export class Product {
   status: StatusEnum;
 
   @Prop()
-  createdAt: FormData;
+  createdAt: Date;
 
   @Prop()
-  updatedAt: FormData;
+  updatedAt: Date;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
