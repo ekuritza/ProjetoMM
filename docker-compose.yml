@@ -3,7 +3,7 @@ version: '3.7'
 services: 
   app:
     build: .
-    container_name: kuritza
+    container_name: productApi
     ports: 
       - 3333:3333
     volumes:
