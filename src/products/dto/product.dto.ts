@@ -1,10 +1,11 @@
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { StatusEnum } from '../types/status-enum';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateProductDto {
-  id: string;
   @IsString()
   @IsNotEmpty()
+  @ApiProperty({ description: 'name cant be empty', example: '' })
   name: string;
   @IsNumber()
   @IsNotEmpty()
@@ -12,5 +13,8 @@ export class CreateProductDto {
   @IsNumber()
   @IsNotEmpty()
   stock: number;
+  @IsEnum(StatusEnum, {
+    message: `$property must be one of these: ${Object.keys(StatusEnum)}`,
+  })
   status: StatusEnum;
 }
