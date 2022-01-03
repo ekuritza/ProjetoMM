@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, BadRequestException, Logger } from '@nestjs/common';
 import { Products } from './entities/products';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -6,9 +6,12 @@ import { CreateProductDto } from './dto/product.dto';
 
 @Injectable()
 export class ProductsService {
+  private readonly logger: Logger;
   constructor(
     @InjectModel('Product') private readonly productModel: Model<Products>,
-  ) {}
+  ) {
+    this.logger = new Logger();
+  }
   async getAll() {
     return await this.productModel.find().exec();
   }
@@ -18,6 +21,14 @@ export class ProductsService {
   }
 
   async create(product: CreateProductDto) {
+    if (product.price < 0 || product.price === 0) {
+      this.logger.error('below the agreed upon price');
+      throw new BadRequestException('below the agreed upon price');
+    }
+    if (product.stock < 0 || product.stock === 0) {
+      this.logger.error('out of stock');
+      throw new BadRequestException('out of stock');
+    }
     const createProduct = new this.productModel(product);
     return await createProduct.save();
   }
