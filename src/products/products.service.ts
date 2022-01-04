@@ -1,5 +1,5 @@
 import { Injectable, BadRequestException, Logger } from '@nestjs/common';
-import { Products } from './entities/products';
+import { Product } from './entities/products';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateProductDto } from './dto/product.dto';
@@ -8,7 +8,7 @@ import { CreateProductDto } from './dto/product.dto';
 export class ProductsService {
   private readonly logger: Logger;
   constructor(
-    @InjectModel('Product') private readonly productModel: Model<Products>,
+    @InjectModel('Product') private readonly productModel: Model<Product>,
   ) {
     this.logger = new Logger();
   }
