@@ -21,7 +21,6 @@ export const OrderSchema = new mongoose.Schema(
     },
     products: [
       {
-        id: String,
         price: Number,
         name: String,
       },
