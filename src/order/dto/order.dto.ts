@@ -1,17 +1,18 @@
 import { IsEnum, IsNotEmpty, IsNumber } from 'class-validator';
-import { orderStatusEnum } from 'src/types/order-status-enum';
+import { OrderStatusEnum } from '../types/order-status-enum';
+import { PaymentStatusEnum } from '../types/payments-types-enum';
 
 export class CreateOrderDto {
-  @IsEnum(orderStatusEnum, {
-    message: `$property must be one of these: ${Object.keys(orderStatusEnum)}`,
+  @IsEnum(OrderStatusEnum, {
+    message: `$property must be one of these: ${Object.keys(OrderStatusEnum)}`,
   })
-  status: orderStatusEnum;
+  status: OrderStatusEnum;
   @IsNumber()
   @IsNotEmpty()
   price: number;
   payment: {
     cardholder: string;
-    paymentStatus: string;
+    paymentStatus: PaymentStatusEnum;
     value: number;
     dueDate: Date;
   };

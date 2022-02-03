@@ -1,19 +1,19 @@
 import * as mongoose from 'mongoose';
-import { orderStatusEnum } from 'src/types/order-status-enum';
-import { paymentStatusEnum } from 'src/types/payments-types-enum';
+import { OrderStatusEnum } from '../types/order-status-enum';
+import { PaymentStatusEnum } from '../types/payments-types-enum';
 import { Order } from '../entities/order';
 
 export const OrderSchema = new mongoose.Schema(
   {
     status: {
       type: String,
-      enum: Object.values(orderStatusEnum),
+      enum: Object.values(OrderStatusEnum),
     },
     price: Number,
     payment: {
       paymentStatus: {
         type: String,
-        enum: Object.values(paymentStatusEnum),
+        enum: Object.values(PaymentStatusEnum),
       },
       cardholder: String,
       dueDate: Date,

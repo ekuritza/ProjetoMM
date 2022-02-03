@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose';
-import { StatusEnum } from '../../types/status-enum';
+import { StatusEnum } from '../types/status-enum';
 
 export const ProductSchema = new mongoose.Schema(
   {

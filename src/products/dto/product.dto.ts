@@ -1,5 +1,5 @@
 import { IsEnum, IsNotEmpty, IsNumber, IsString } from 'class-validator';
-import { StatusEnum } from '../../types/status-enum';
+import { StatusEnum } from '../types/status-enum';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateProductDto {

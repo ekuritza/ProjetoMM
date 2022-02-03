@@ -1,12 +1,13 @@
-import { orderStatusEnum } from 'src/types/order-status-enum';
+import { OrderStatusEnum } from '../types/order-status-enum';
 import { Document } from 'mongoose';
+import { PaymentStatusEnum } from '../types/payments-types-enum';
 
 export interface Order extends Document {
   id?: string;
-  status: orderStatusEnum;
+  status: OrderStatusEnum;
   price: number;
   payment: {
-    type: string;
+    type: PaymentStatusEnum;
     cardholder: string;
     dueDate: Date;
     value: number;
