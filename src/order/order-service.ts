@@ -4,16 +4,12 @@ import { Order } from './entities/order';
 import { OrderInterface } from './interfaces/order-service.interface';
 import { OrderRepositoryInterface } from './interfaces/order-repository-interface';
 import { DeleteResult } from 'mongodb';
-import { Product } from 'src/products/entities/products';
-import { Model } from 'mongoose';
-import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class OrderService implements OrderInterface {
   constructor(
     @Inject('OrderRepositoryInterface')
     private readonly orderRepository: OrderRepositoryInterface,
-    //@InjectModel('Product') private readonly productModel: Model<Product>,
   ) {}
 
   async create(createOrderDto: CreateOrderDto) {

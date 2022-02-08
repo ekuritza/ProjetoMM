@@ -1,4 +1,4 @@
-import { IsEnum, IsNotEmpty, IsNumber } from 'class-validator';
+import { IsArray, IsEnum, IsNotEmpty, IsNumber } from 'class-validator';
 import { OrderStatusEnum } from '../types/order-status-enum';
 import { PaymentStatusEnum } from '../types/payments-types-enum';
 
@@ -16,4 +16,11 @@ export class CreateOrderDto {
     value: number;
     dueDate: Date;
   };
+  @IsArray()
+  products: [
+    {
+      price: number;
+      name: string;
+    },
+  ];
 }
