@@ -27,4 +27,8 @@ describe('MongooseOrderRepository', () => {
     );
     orderModel = module.get<Model<OrderDocument>>(getModelToken(Order.name));
   });
+
+  it('Should be defined', () => {
+    expect(mongooseOrderRepository).toBeDefined();
+  });
 });
