@@ -1,8 +1,7 @@
 import { OrderStatusEnum } from '../types/order-status-enum';
-import { Document } from 'mongoose';
 import { PaymentStatusEnum } from '../types/payments-types-enum';
 
-export interface Order extends Document {
+export class Order {
   id?: string;
   status: OrderStatusEnum;
   price: number;
