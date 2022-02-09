@@ -1,6 +1,6 @@
 import { Inject } from '@nestjs/common';
 import { DeleteResult } from 'mongodb';
-import { CreateOrderDto } from '../dto/order.dto';
+import { CreateOrderDto } from '../dtos/order.dto';
 import { Order } from '../entities/order';
 import { OrderRepositoryInterface } from '../interfaces/order-repository-interface';
 import { MongooseOrderRepository } from './mongoose-order-repository';

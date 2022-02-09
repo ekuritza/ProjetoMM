@@ -1,5 +1,5 @@
 import { DeleteResult } from 'mongodb';
-import { CreateOrderDto } from '../dto/order.dto';
+import { CreateOrderDto } from '../dtos/order.dto';
 import { Order } from '../entities/order';
 
 export interface OrderRepositoryInterface {

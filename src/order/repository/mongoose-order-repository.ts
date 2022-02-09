@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { DeleteResult } from 'mongodb';
 import { Model } from 'mongoose';
-import { CreateOrderDto } from '../dto/order.dto';
+import { CreateOrderDto } from '../dtos/order.dto';
 import { Order } from '../entities/order';
 
 @Injectable()

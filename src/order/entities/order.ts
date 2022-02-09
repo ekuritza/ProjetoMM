@@ -1,12 +1,12 @@
 import { OrderStatusEnum } from '../types/order-status-enum';
-import { PaymentStatusEnum } from '../types/payments-types-enum';
+import { PaymentTypeEnum } from '../types/payments-types-enum';
 
 export class Order {
   id?: string;
   status: OrderStatusEnum;
   price: number;
   payment: {
-    type: PaymentStatusEnum;
+    type: PaymentTypeEnum;
     cardholder: string;
     dueDate: Date;
     value: number;

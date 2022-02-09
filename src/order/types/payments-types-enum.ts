@@ -1,4 +1,4 @@
-export enum PaymentStatusEnum {
+export enum PaymentTypeEnum {
   PIX = 1,
   BOLETO = 2,
   CREDIT_CARD = 3,
