@@ -1,6 +1,6 @@
 import { PaymentTypeEnum } from '../types/payments-types-enum';
 
-export class payment {
+export class Payment {
   type: PaymentTypeEnum;
   cardholder: string;
   dueDate: Date;
