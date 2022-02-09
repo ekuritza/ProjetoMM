@@ -3,7 +3,7 @@ import { Product } from './entities/products';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateProductDto } from './dto/product.dto';
-
+import { DeleteResult } from 'mongodb';
 @Injectable()
 export class ProductsService {
   private readonly logger: Logger;
@@ -38,7 +38,7 @@ export class ProductsService {
     return this.getById(id);
   }
 
-  async delete(id: string) {
+  async delete(id: string): Promise<DeleteResult> {
     return this.productModel.deleteOne({ _id: id }).exec();
   }
 }
