@@ -15,4 +15,5 @@ export class CreateOrderDto {
   payment: PaymentDto;
   @IsArray()
   products: ProductDto[];
+  //so pra atualizar
 }
